@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  webhook:
+    container_name: webhook
+    build:
+      context: .
+      dockerfile: Dockerfile.webhook
+    env_file: .env
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+
+  caddy:
+    container_name: caddy
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+      - ./site/srv
+    depends_on:
+      - webhook

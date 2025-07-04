@@ -1,0 +1,6 @@
+FROM mtvirux/ubuntu-lunar-python3.10.5:latest
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD ["python", "webhook_server.py"]

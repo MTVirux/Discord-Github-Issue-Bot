@@ -1,0 +1,4 @@
+example.com {
+    reverse_proxy webhook:5000
+    tls yourname@example.com
+}

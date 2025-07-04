@@ -1,1 +1,9 @@
 .env
+Caddyfile
+/caddy_config
+/caddy_data
+webhook.log
+mapping.json
+restart.sh
+__pycache__
+venv
