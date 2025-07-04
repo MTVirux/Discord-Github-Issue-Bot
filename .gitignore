@@ -7,3 +7,4 @@ mapping.json
 restart.sh
 __pycache__
 venv
+forum_mapping.json
